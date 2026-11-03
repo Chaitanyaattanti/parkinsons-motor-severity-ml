@@ -16,5 +16,3 @@ MDS-UPDRS_English_FINAL_Updated_August2019.pdf
 /data/
 /reports/
 
-# Executed notebook contains participant-level labels and predictions
-clinical_score_training.ipynb

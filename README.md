@@ -24,17 +24,17 @@ Participant-held-out training and testing
 Metrics, predictions, and limitations
 ```
 
-The main executed experiment is documented in and reproducible from [clinical_score_training.ipynb](./clinical_score_training.ipynb).
+The public notebook [clinical_score_training.ipynb](./clinical_score_training.ipynb) contains the reproducible ML workflow with outputs cleared. Raw recordings, clinical workbooks, and derived feature tables are intentionally excluded; supply them locally before execution.
 
 ## 2. Data and labels
 
-The local feature table is `data/features/recording_level_features.csv`. It contains 29 recordings from:
+The local feature table is `data/features/recording_level_features.csv` (not included in this public repository). It contains 29 recordings from:
 
 - 12 healthy recordings
 - 15 Parkinson's disease recordings
 - 2 atypical parkinsonism recordings
 
-The clinician workbook is a local-only file and must not be committed to a public repository. It contains Part III scores for three unhealthy participants. The local analysis reported these aggregate totals:
+The clinician workbook is a local-only file and must not be committed to this public repository. It contains Part III scores for three unhealthy participants. The local analysis reported these aggregate totals:
 
 | Group | Participants |
 |---|---:|
