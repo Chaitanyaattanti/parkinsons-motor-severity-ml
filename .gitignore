@@ -1,0 +1,20 @@
+.vercel/
+.venv/
+.DS_Store
+__pycache__/
+*.pyc
+
+# Sensitive raw and clinical source data
+PD Patients/
+Healthy Participants/
+Clinical Score.xlsx
+Patient Tests and Parameters for Data Collection.xlsx
+UPDRS Assessment Sheet.xlsx
+MDS-UPDRS_English_FINAL_Updated_August2019.pdf
+
+# Patient-derived datasets and reports
+/data/
+/reports/
+
+# Executed notebook contains participant-level labels and predictions
+clinical_score_training.ipynb

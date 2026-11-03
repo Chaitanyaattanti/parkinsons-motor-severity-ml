@@ -1,0 +1,11 @@
+{
+  "name": "mds-updrs-motor-exam",
+  "version": "1.0.0",
+  "description": "MDS-UPDRS Part III Motor Examination Progressive Web Application for doctors",
+  "scripts": {
+    "deploy": "vercel --prod"
+  },
+  "keywords": ["medical", "parkinsons", "updrs", "neurology"],
+  "author": "",
+  "license": "MIT"
+}

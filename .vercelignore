@@ -1,0 +1,9 @@
+*.py
+*.xlsx
+*.csv
+.venv
+__pycache__
+artifacts
+data
+README.md
+requirements.txt

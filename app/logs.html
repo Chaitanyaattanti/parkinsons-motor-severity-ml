@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS-UPDRS Part III: Patient Evaluation Logs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .logs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logs-table-card {
+      background: #ffffff;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+    .logs-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+    .logs-table th {
+      background: #f1f5f9;
+      padding: 10px 14px;
+      font-weight: 600;
+      color: #475569;
+      border-bottom: 1px solid var(--border-color);
+      text-align: left;
+    }
+    .logs-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+    .logs-table tr:hover td {
+      background: #f8fafc;
+    }
+    .empty-state {
+      padding: 40px;
+      text-align: center;
+      color: var(--text-muted);
+    }
+    .action-btn-sm {
+      padding: 4px 8px;
+      font-size: 0.775rem;
+      border-radius: 4px;
+      border: 1px solid var(--border-color);
+      background: #fff;
+      cursor: pointer;
+      font-weight: 500;
+    }
+    .action-btn-sm:hover {
+      background: #f1f5f9;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <div>
+          <h1>MDS-UPDRS Part III: Patient Evaluation Logs</h1>
+          <p class="subtitle">Saved Patient Evaluations &amp; Study Database</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a href="/" class="btn btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+          Back to Assessment App
+        </a>
+        <a href="https://vercel.com/curr2/app/logs" target="_blank" rel="noopener" class="btn btn-secondary" title="View raw Vercel real-time runtime logs">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          Vercel Dashboard Logs
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="app-main" style="max-width: 1200px; margin: 24px auto;">
+    <div class="logs-header">
+      <div>
+        <h2 style="font-size: 1.25rem; font-weight: 700;">Recorded Patient Assessments</h2>
+        <p style="font-size: 0.825rem; color: var(--text-muted);">All submissions logged from the scoring app on Vercel</p>
+      </div>
+      <div style="display: flex; gap: 8px;">
+        <button id="btnRefreshLogs" class="btn btn-secondary">Refresh</button>
+        <button id="btnExportAllCSV" class="btn btn-primary">Export All as CSV</button>
+      </div>
+    </div>
+
+    <div class="logs-table-card">
+      <table class="logs-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th>Patient Name</th>
+            <th>Patient ID</th>
+            <th>Session</th>
+            <th>Date</th>
+            <th>Medication</th>
+            <th>Examiner</th>
+            <th style="text-align: center;">Total Score</th>
+            <th style="text-align: center;">Completed</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="logsTableBody">
+          <tr>
+            <td colspan="10" class="empty-state">Loading recorded logs...</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="data.js"></script>
+  <script>
+    (function () {
+      const LOCAL_LOGS_KEY = 'mds_updrs_client_logged_evaluations_v1';
+      let allLogs = [];
+
+      function getLocalLogs() {
+        try {
+          return JSON.parse(localStorage.getItem(LOCAL_LOGS_KEY)) || [];
+        } catch (e) {
+          return [];
+        }
+      }
+
+      async function fetchLogs() {
+        const tbody = document.getElementById('logsTableBody');
+        tbody.innerHTML = '<tr><td colspan="9" class="empty-state">Fetching logs from Vercel...</td></tr>';
+
+        const localList = getLocalLogs();
+        let serverList = [];
+
+        try {
+          const res = await fetch('/api/log');
+          if (res.ok) {
+            const data = await res.json();
+            serverList = data.logs || [];
+          }
+        } catch (e) {
+          console.warn('Could not fetch server logs, using local logs', e);
+        }
+
+        // Merge all logs (server + local) into one flat list, newest first
+        const merged = [...serverList, ...localList];
+
+        // Deduplicate only records with both Patient ID and Session ID.
+        // Optional identifiers must not merge separate assessments.
+        function getPatientSessionKey(item) {
+          const p = (item.patientId || '').trim().toLowerCase();
+          const s = (item.sessionId || '').trim().toLowerCase();
+          if (!p || !s) return item.id || `${item.timestamp || Date.now()}|${item.patientName || ''}`;
+          return `${p}|${s}`;
+        }
+
+        function getRecordTime(item) {
+          if (item.timestamp) {
+            const t = new Date(item.timestamp).getTime();
+            if (!isNaN(t)) return t;
+          }
+          if (item.examDate) {
+            const t = new Date(item.examDate).getTime();
+            if (!isNaN(t)) return t;
+          }
+          return 0;
+        }
+
+        const dedupeMap = new Map();
+        merged.forEach(item => {
+          const key = getPatientSessionKey(item);
+          const existing = dedupeMap.get(key);
+          if (!existing) {
+            dedupeMap.set(key, item);
+          } else {
+            // Keep whichever has the later date / timestamp
+            if (getRecordTime(item) > getRecordTime(existing)) {
+              dedupeMap.set(key, item);
+            }
+          }
+        });
+
+        allLogs = Array.from(dedupeMap.values())
+          .sort((a, b) => getRecordTime(b) - getRecordTime(a)); // newest date first
+
+        renderLogs();
+
+      }
+
+      function renderLogs() {
+        const tbody = document.getElementById('logsTableBody');
+        tbody.innerHTML = '';
+
+        if (allLogs.length === 0) {
+          tbody.innerHTML = '<tr><td colspan="10" class="empty-state">No patient evaluations recorded yet. Complete an assessment in the app to see logs here.</td></tr>';
+          return;
+        }
+
+        allLogs.forEach((log, idx) => {
+          const tr = document.createElement('tr');
+
+          const d = log.timestamp ? new Date(log.timestamp).toLocaleString([], { dateStyle: 'short', timeStyle: 'short' }) : '—';
+          
+          tr.innerHTML = `
+            <td><span style="font-size: 0.775rem; color: #64748b;">${d}</span></td>
+            <td>${log.patientName || '—'}</td>
+            <td><strong>${log.patientId || '—'}</strong></td>
+            <td>${log.sessionId || '—'}</td>
+            <td>${log.examDate || '—'}</td>
+            <td><span class="badge ${log.medState === 'ON' ? 'badge-mild' : 'badge-normal'}">${log.medState || 'NA'}</span></td>
+            <td>${log.clinicianName || '—'}</td>
+            <td style="text-align: center;"><strong style="color: var(--primary); font-size: 1.05rem;">${log.totalScore !== undefined ? log.totalScore : 0}</strong> <span style="font-size: 0.75rem; color: #94a3b8;">/ 132</span></td>
+            <td style="text-align: center;">${log.scoredCount || 0} / 33</td>
+            <td>
+              <button class="action-btn-sm" onclick="downloadSingleExcel(${idx})">Download .xlsx</button>
+            </td>
+          `;
+
+          tbody.appendChild(tr);
+        });
+      }
+
+      window.downloadSingleExcel = function (index) {
+        const log = allLogs[index];
+        if (!log) return;
+
+        const wb = XLSX.utils.book_new();
+
+        const pRows = [
+          ['MDS-UPDRS Part III: Motor Function Examination Record'],
+          [],
+          ['Patient Name', log.patientName || '', 'Patient ID', log.patientId || ''],
+          ['Session ID', log.sessionId || '', 'MDS-UPDRS Number', log.updrsNumber || ''],
+          ['Assessment Date', log.examDate, 'Medication State', log.medState],
+          ['Levodopa', log.levodopaStatus || 'UNKNOWN', 'Last Levodopa Dose', log.lastLevodopaDose || ''],
+          ['Examiner', log.clinicianName || '', 'Total Score', `${log.totalScore} / 132`],
+          ['Notes', log.clinicalNotes || ''],
+          [],
+          ['Item #', 'Item Name', 'Score (0-4)']
+        ];
+
+        MDS_UPDRS_PART_III_ITEMS.forEach(it => {
+          const s = (log.scores && log.scores[it.id] !== undefined && log.scores[it.id] !== null) ? log.scores[it.id] : '';
+          pRows.push([it.id, it.name, s]);
+        });
+
+        const ws = XLSX.utils.aoa_to_sheet(pRows);
+        XLSX.utils.book_append_sheet(wb, ws, 'Part III');
+        XLSX.writeFile(wb, `Report-${log.patientId}-${log.sessionId}.xlsx`);
+      };
+
+      document.getElementById('btnRefreshLogs').addEventListener('click', fetchLogs);
+
+      document.getElementById('btnExportAllCSV').addEventListener('click', () => {
+        if (allLogs.length === 0) {
+          alert('No logs to export.');
+          return;
+        }
+
+        const headers = ['patient_name', 'patient_id', 'session_id', 'updrs_number', 'date', 'med_state', 'levodopa_status', 'last_levodopa_dose', 'examiner', 'total_score', 'items_scored'];
+        MDS_UPDRS_PART_III_ITEMS.forEach(item => headers.push(`item_${item.id}`));
+        headers.push('clinical_notes');
+
+        const rows = [headers.join(',')];
+        allLogs.forEach(log => {
+          const r = [
+            `"${(log.patientName || '').replace(/"/g, '""')}"`,
+            `"${log.patientId || ''}"`,
+            `"${log.sessionId || ''}"`,
+            `"${(log.updrsNumber || '').replace(/"/g, '""')}"`,
+            `"${log.examDate || ''}"`,
+            `"${log.medState || ''}"`,
+            `"${log.levodopaStatus || ''}"`,
+            `"${log.lastLevodopaDose || ''}"`,
+            `"${(log.clinicianName || '').replace(/"/g, '""')}"`,
+            log.totalScore !== undefined ? log.totalScore : '',
+            log.scoredCount !== undefined ? log.scoredCount : ''
+          ];
+          MDS_UPDRS_PART_III_ITEMS.forEach(item => {
+            const val = (log.scores && log.scores[item.id] !== undefined && log.scores[item.id] !== null) ? log.scores[item.id] : '';
+            r.push(val);
+          });
+          r.push(`"${(log.clinicalNotes || '').replace(/"/g, '""')}"`);
+          rows.push(r.join(','));
+        });
+
+        const blob = new Blob([rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `MDS_UPDRS_All_Patients_${new Date().toISOString().split('T')[0]}.csv`;
+        a.click();
+      });
+
+      fetchLogs();
+    })();
+  </script>
+</body>
+</html>

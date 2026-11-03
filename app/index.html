@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS-UPDRS Part III: Motor Function Examination</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="MDS-UPDRS">
+  <meta name="theme-color" content="#2563eb">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Navigation & Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+        <div>
+          <h1>MDS-UPDRS Part III: Motor Function Test</h1>
+          <p class="subtitle">Clinician-rated MDS-UPDRS Part III Motor Examination (18 Items · 33 Scored Elements · 0–132)</p>
+        </div>
+      </div>
+
+      <div class="header-actions no-print">
+        <button id="btnInstallApp" class="btn btn-primary" title="Install as standalone application" style="display: none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Install App
+        </button>
+        <a href="logs" id="btnViewLogs" class="btn btn-secondary" title="View saved patient evaluation logs" style="text-decoration: none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+          <span>Saved Logs</span>
+        </a>
+        <button id="btnQuickBaseline" class="btn btn-secondary" title="Mark all unrated items as 0 (Normal)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Set All 0
+        </button>
+        <button id="btnClearAll" class="btn btn-outline-danger" title="Clear all scores">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Clear
+        </button>
+        <button id="btnExportExcel" class="btn btn-secondary btn-excel" title="Download formatted Excel spreadsheet (.xlsx)">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          Save Excel
+        </button>
+        <button id="btnSendEmail" class="btn btn-secondary" title="Send assessment via Email">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </button>
+        <button id="btnPrint" class="btn btn-secondary" title="Print clinical report">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+          Print
+        </button>
+        <button id="btnDoneHeader" class="btn btn-success" title="Finish assessment, display stats & save/send sheet">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Done
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sticky Score HUD -->
+  <div class="score-hud-container no-print">
+    <div class="score-hud">
+      <div class="hud-score-block">
+        <div class="hud-score-label">PART III MOTOR SCORE</div>
+        <div class="hud-score-value">
+          <span id="totalScore">0</span>
+          <span class="hud-score-max">/ 132</span>
+        </div>
+      </div>
+
+      <div class="hud-divider"></div>
+
+      <div class="hud-status-block">
+        <!-- Severity Level commented out while scoring for now
+        <div class="hud-status-row">
+          <span class="hud-status-label">Severity Level:</span>
+          <span id="severityBadge" class="badge badge-normal">Normal (0)</span>
+        </div>
+        -->
+        <div class="hud-progress-info">
+          <span id="progressText">0 of 33 items scored (0%)</span>
+          <div class="progress-bar-track">
+            <div id="progressBarFill" class="progress-bar-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hud-view-toggle">
+        <label class="toggle-label" title="Switch between Paginated mode and Single-page mode">
+          <input type="checkbox" id="viewAllToggle">
+          <span class="toggle-slider"></span>
+          <span class="toggle-text" id="toggleViewText">Paginated</span>
+        </label>
+      </div>
+
+      <div class="hud-filter-block">
+        <input type="text" id="searchInput" placeholder="Search item (e.g. tremor, gait, rigidity)..." autocomplete="off">
+        <select id="filterStatus">
+          <option value="all">All Items</option>
+          <option value="unrated">Unrated Items</option>
+          <option value="positive">Symptoms Present (&gt; 0)</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Section Navigation Tabs / Pages -->
+    <nav class="stepper-nav" id="stepperNav">
+      <!-- Dynamically filled by app.js -->
+    </nav>
+  </div>
+
+  <main class="app-main">
+    <!-- Patient Context Metadata Card (Displayed on Page 1 / First only) -->
+    <section class="patient-card" id="patientCard">
+      <div class="card-title-row">
+        <h2>Patient &amp; Assessment Information</h2>
+        <span class="print-only-score" id="printScoreSummary"></span>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="patientName">Patient Name <span class="optional-label">(Optional)</span></label>
+          <input type="text" id="patientName" placeholder="Optional" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="patientId">Patient ID <span class="optional-label">(Optional)</span></label>
+          <input type="text" id="patientId" placeholder="Optional (e.g. P001)" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="sessionId">Session / Trial ID <span class="optional-label">(Optional)</span></label>
+          <input type="text" id="sessionId" placeholder="Optional (e.g. S001)" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="updrsNumber">MDS-UPDRS Number <span class="optional-label">(Optional)</span></label>
+          <input type="text" id="updrsNumber" placeholder="Optional assessment number" autocomplete="off">
+        </div>
+        <div class="form-group">
+          <label for="examDate">Assessment Date</label>
+          <input type="date" id="examDate">
+        </div>
+        <div class="form-group">
+          <label for="medState">Medication State</label>
+          <select id="medState">
+            <option value="ON">ON Medication (Post-dose)</option>
+            <option value="OFF">OFF Medication (Pre-dose / Defined OFF)</option>
+            <option value="NA">Not Applicable / Untreated</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="pdMedicationStatus">Medication for PD symptoms?</label>
+          <select id="pdMedicationStatus">
+            <option value="UNKNOWN">Not recorded</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="levodopaStatus">Patient on levodopa?</label>
+          <select id="levodopaStatus">
+            <option value="UNKNOWN">Not recorded</option>
+            <option value="YES">Yes</option>
+            <option value="NO">No</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="lastLevodopaDose">Last levodopa dose <span class="optional-label">(If applicable)</span></label>
+          <input type="datetime-local" id="lastLevodopaDose">
+        </div>
+        <div class="form-group">
+          <label for="clinicianName">Examiner / Doctor</label>
+          <input type="text" id="clinicianName" placeholder="Dr. Name">
+        </div>
+        <div class="form-group">
+          <label for="recipientEmail">Doctor / Clinic Email (For Sending)</label>
+          <input type="email" id="recipientEmail" placeholder="doctor@clinic.org">
+        </div>
+        <div class="form-group" style="grid-column: 1 / -1;">
+          <label for="clinicalNotes">Clinical Observations / Notes</label>
+          <input type="text" id="clinicalNotes" placeholder="Optional notes (e.g. side dominance, fatigue, gait freezing episodes)">
+        </div>
+        <div class="form-group">
+          <label for="dyskinesiaPresent">Dyskinesia present during examination?</label>
+          <select id="dyskinesiaPresent">
+            <option value="UNKNOWN">Not recorded</option>
+            <option value="NO">No</option>
+            <option value="YES">Yes</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="dyskinesiaInterference">Did dyskinesia interfere with ratings?</label>
+          <select id="dyskinesiaInterference">
+            <option value="UNKNOWN">Not recorded</option>
+            <option value="NO">No</option>
+            <option value="YES">Yes</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hoehnYahrStage">Hoehn &amp; Yahr stage <span class="optional-label">(Optional)</span></label>
+          <select id="hoehnYahrStage">
+            <option value="">Not recorded</option>
+            <option value="0">0 - Asymptomatic</option>
+            <option value="1">1 - Unilateral involvement</option>
+            <option value="2">2 - Bilateral, no balance impairment</option>
+            <option value="3">3 - Postural instability, independent</option>
+            <option value="4">4 - Severe disability, can walk/stand</option>
+            <option value="5">5 - Wheelchair-bound or bedridden</option>
+          </select>
+        </div>
+        <div class="form-help" style="grid-column: 1 / -1;">
+          All Part III items are scored by the examiner from clinical observation and examination. They are not patient self-report questions.
+        </div>
+      </div>
+    </section>
+
+    <!-- Active Section Header Banner (Paginated Mode) -->
+    <div id="sectionHeaderBanner" class="section-banner">
+      <div class="section-banner-title">
+        <span class="section-step-badge" id="currentSectionBadge">Page 1 of 7</span>
+        <h2 id="currentSectionTitle">1. Craniofacial &amp; Speech</h2>
+      </div>
+      <p id="currentSectionSubtitle" class="section-banner-desc">Facial expression, involuntary movement, tongue, voice, swallowing</p>
+    </div>
+
+    <!-- Assessment Items List Container -->
+    <section class="items-section" id="itemsSection">
+      <div id="itemsContainer" class="items-container">
+        <!-- Dynamically rendered via app.js -->
+      </div>
+    </section>
+
+    <!-- Page 7: Final Summary & Review Section (Shown on page 7) -->
+    <section id="summarySection" class="summary-section" style="display: none;">
+      <div class="summary-card">
+        <div class="summary-header">
+          <h2>Clinical Examination Summary &amp; Results</h2>
+          <div class="summary-actions">
+            <button id="btnSummaryExcel" class="btn btn-success">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              Save Excel (.xlsx)
+            </button>
+            <button id="btnSummaryEmail" class="btn btn-secondary">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              Send Email
+            </button>
+            <button id="btnSummaryCopy" class="btn btn-secondary">Copy Clinical Note</button>
+            <button id="btnSummaryPrint" class="btn btn-primary">Print Report</button>
+          </div>
+        </div>
+
+        <div class="summary-metrics-grid">
+          <div class="metric-card">
+            <div class="metric-label">Patient &amp; Session</div>
+            <div class="metric-value" id="summaryPatientSession">Not provided</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Total Part III Score</div>
+            <div class="metric-value"><span id="summaryTotalScore">0</span> / 132</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Items Completed</div>
+            <div class="metric-value" id="summaryCompletionText">0 / 33 (0%)</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Medication State</div>
+            <div class="metric-value" id="summaryMedState">ON</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-label">Examiner / Date</div>
+            <div class="metric-value" style="font-size: 0.95rem; font-weight: 600;" id="summaryExaminerDate">—</div>
+          </div>
+        </div>
+
+        <div id="summaryNotesBlock" class="metric-card" style="display: none; margin-bottom: 4px;">
+          <div class="metric-label">Clinical Observations / Notes</div>
+          <div id="summaryNotesText" style="font-size: 0.9rem; color: #334155; margin-top: 4px;"></div>
+        </div>
+        <div id="summaryDyskinesiaBlock" class="metric-card" style="margin-bottom: 4px;">
+          <div class="metric-label">Dyskinesia Impact on Part III Ratings</div>
+          <div id="summaryDyskinesiaText" style="font-size: 0.9rem; color: #334155; margin-top: 4px;"></div>
+        </div>
+
+        <!-- Domain Breakdown Cards -->
+        <div class="domain-breakdown-card">
+          <h3>Motor Domain Subscores</h3>
+          <div class="domain-grid" id="domainGrid">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <div class="summary-table-container">
+          <table class="summary-table" id="summaryTable">
+            <thead>
+              <tr>
+                <th style="width: 55px;">#</th>
+                <th>Assessment Item</th>
+                <th style="width: 80px; text-align: center;">Score</th>
+                <th>Evaluation Anchor / Finding</th>
+              </tr>
+            </thead>
+            <tbody id="summaryTableBody">
+              <!-- Dynamically rendered -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Page Navigation Bar -->
+    <div class="page-nav-bar no-print" id="pageNavBar">
+      <button id="btnPrevPage" class="btn btn-secondary nav-btn" disabled>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+        Previous Page
+      </button>
+
+      <div class="page-indicator" id="pageIndicatorText">
+        Page 1 of 7
+      </div>
+
+      <div class="page-nav-right">
+        <button id="btnNextPage" class="btn btn-primary nav-btn">
+          Next Page
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+
+        <button id="btnDoneBottom" class="btn btn-success nav-btn" style="display: none;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Done - View Stats &amp; Save
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Assessment Completed "Done" Modal with Stats, Excel & Email -->
+  <div id="doneModal" class="modal-overlay no-print">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div class="modal-header-brand">
+          <div class="modal-icon-success">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <h3>Assessment Complete</h3>
+            <p class="modal-subtitle">MDS-UPDRS Part III Motor Examination Results</p>
+          </div>
+        </div>
+        <button id="btnCloseModal" class="modal-close-btn">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="done-summary-banner">
+          <div class="done-score-display">
+            <span class="done-score-num" id="modalTotalScore">0</span>
+            <span class="done-score-den">/ 132</span>
+          </div>
+          <div class="done-score-details">
+            <!-- Severity Level display commented out for now
+            <div id="modalSeverityBadge" class="badge badge-normal" style="font-size: 0.9rem; padding: 4px 14px;">Normal (0)</div>
+            -->
+            <div class="done-patient-line" id="modalPatientLine">Patient: Not provided · Medication: ON</div>
+            <div class="done-completion-line" id="modalCompletionLine">33 of 33 items scored (100%)</div>
+          </div>
+        </div>
+
+        <div class="modal-section-title">Motor Domain Breakdown</div>
+        <div class="modal-domains-grid" id="modalDomainGrid">
+          <!-- Populated dynamically -->
+        </div>
+
+        <div class="modal-actions-box">
+          <div class="action-card">
+            <div class="action-card-icon" style="background: #dcfce7; color: #15803d;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <div class="action-card-info">
+              <strong>Save Log &amp; Start New Assessment</strong>
+              <p>Save this assessment to the logs, then clear the form for the next patient.</p>
+            </div>
+            <button id="btnModalSaveLog" class="btn btn-success">Save Log</button>
+          </div>
+
+          <div class="action-card">
+            <div class="action-card-icon excel-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+            </div>
+            <div class="action-card-info">
+              <strong>Save Excel Spreadsheet (.xlsx)</strong>
+              <p>Formatted workbook containing patient info, item breakdown, and domain totals.</p>
+            </div>
+            <button id="btnModalDownloadExcel" class="btn btn-success">Download .xlsx</button>
+          </div>
+
+          <div class="action-card">
+            <div class="action-card-icon email-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="action-card-info">
+              <strong>Send via Email</strong>
+              <p>Share Excel spreadsheet directly with subject Report-[Patient]-[Session] (no body text).</p>
+            </div>
+            <button id="btnModalSendEmail" class="btn btn-primary">Send Email</button>
+          </div>
+
+          <div class="action-card" id="vercelLogCard">
+            <div class="action-card-icon" style="background: #e0e7ff; color: #4338ca;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="action-card-info">
+              <strong>Saved to Vercel Logs</strong>
+              <p id="vercelLogStatusText">The assessment will be saved when you select “Save Log”.</p>
+            </div>
+            <a href="logs" class="btn btn-secondary" style="text-decoration: none;">View Logs</a>
+          </div>
+
+          <div class="action-card">
+            <div class="action-card-icon copy-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </div>
+            <div class="action-card-info">
+              <strong>Copy Clinical Text</strong>
+              <p>Copy formatted assessment summary to paste into EHR or clinical notes.</p>
+            </div>
+            <button id="btnModalCopyText" class="btn btn-secondary">Copy Text</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="btnModalViewReport" class="btn btn-secondary">View Detailed Report Page</button>
+        <button id="btnModalClose" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Duplicate Log Warning Modal -->
+  <div id="duplicateModal" class="modal-overlay no-print" style="z-index: 10000;">
+    <div class="modal-box" style="max-width: 480px;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-radius: var(--radius-lg) var(--radius-lg) 0 0;">
+        <div class="modal-header-brand">
+          <div class="modal-icon-success" style="background: #f59e0b; color: #fff;">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <div>
+            <h3 style="color: #92400e;">Duplicate Entry Detected</h3>
+            <p class="modal-subtitle" style="color: #b45309;">An existing log was found for this Patient &amp; Session</p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <p id="duplicateModalMsg" style="font-size: 0.9rem; color: #374151; line-height: 1.6; margin-bottom: 0;"></p>
+      </div>
+      <div class="modal-footer" style="gap: 10px;">
+        <button id="btnDuplicateSkip" class="btn btn-secondary" style="flex: 1;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          Skip — Keep Existing
+        </button>
+        <button id="btnDuplicateContinue" class="btn btn-primary" style="flex: 1; background: #f59e0b; border-color: #f59e0b;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+          Continue — Overwrite
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div id="toast" class="toast"></div>
+
+
+  <!-- Local SheetJS library for offline native .xlsx generation -->
+  <script src="vendor/xlsx.full.min.js"></script>
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
