@@ -58,8 +58,7 @@ const SCORE_OPTIONS = {
   '1': 'Slight',
   '2': 'Mild',
   '3': 'Moderate',
-  '4': 'Severe',
-  'UR': 'Unable to Rate'
+  '4': 'Severe'
 };
 
 const TREMOR_OPTIONS = {
@@ -67,8 +66,7 @@ const TREMOR_OPTIONS = {
   '1': 'Slight: Less than 1 cm',
   '2': 'Mild: 1 to less than 3 cm',
   '3': 'Moderate: 3 to less than 10 cm',
-  '4': 'Severe: 10 cm or greater',
-  'UR': 'Unable to Rate'
+  '4': 'Severe: 10 cm or greater'
 };
 
 const LIP_JAW_TREMOR_OPTIONS = {
@@ -76,8 +74,7 @@ const LIP_JAW_TREMOR_OPTIONS = {
   '1': 'Slight: Less than 1 cm',
   '2': 'Mild: 1 to less than 2 cm',
   '3': 'Moderate: 2 to less than 3 cm',
-  '4': 'Severe: 3 cm or greater',
-  'UR': 'Unable to Rate'
+  '4': 'Severe: 3 cm or greater'
 };
 
 const CONSTANCY_OPTIONS = {
@@ -85,8 +82,7 @@ const CONSTANCY_OPTIONS = {
   '1': 'Slight: Present 25% or less of examination',
   '2': 'Mild: Present 26-50% of examination',
   '3': 'Moderate: Present 51-75% of examination',
-  '4': 'Severe: Present more than 75% of examination',
-  'UR': 'Unable to Rate'
+  '4': 'Severe: Present more than 75% of examination'
 };
 
 const MDS_UPDRS_PART_III_ITEMS = [

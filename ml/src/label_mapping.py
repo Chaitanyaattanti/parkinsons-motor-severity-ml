@@ -193,27 +193,31 @@ def generate_label_mapping_artifacts(
             "clinical_item_name": task_info["item_name"],
             "target_score_range": task_info["score_range"],
             "evaluated_side": task_info["body_side"],
-            "clinical_score": "",  # Blank for clinician entry
-            "score_source": "Unresolved",
+            "clinical_score": row.get("clinical_score", ""),
+            "score_source": (
+                row.get("clinical_score_source", "Unresolved")
+                if pd.notna(row.get("clinical_score", np.nan))
+                else "Unresolved"
+            ),
             "assessment_date": "",
             "medication_state": "",  # ON / OFF
             "examiner_name": "",
             "label_verified": False,
             "mapping_notes": (
-                "Pending clinical rating from MDS-UPDRS examination. "
-                "Healthy participants must NOT be defaulted to 0 without clinical exam."
+                "Healthy controls use the study cohort ground truth of 0; "
+                "PD task labels use the Clinical Score.xlsx Part III mapping."
             ),
         }
         mapping_rows.append(rec_label)
 
-        unres_rec = {
-            "participant_id": p_id,
-            "task": task,
-            "clinical_item_id": task_info["item_id"],
-            "reason_unresolved": "Clinical severity score not provided in workspace",
-            "required_action": "Clinician must provide verified 0-4 motor score from assessment sheet",
-        }
-        unresolved_rows.append(unres_rec)
+        if pd.isna(row.get("clinical_score", np.nan)):
+            unresolved_rows.append({
+                "participant_id": p_id,
+                "task": task,
+                "clinical_item_id": task_info["item_id"],
+                "reason_unresolved": "Clinical severity score not provided in workspace",
+                "required_action": "Clinician must provide verified 0-4 motor score from assessment sheet",
+            })
 
     df_template = pd.DataFrame(mapping_rows)
     df_unresolved = pd.DataFrame(unresolved_rows)
@@ -239,7 +243,8 @@ def generate_label_audit_report(df_template: pd.DataFrame, audit: dict[str, Any]
     md.append("## 1. Clinical Scale & Target Identification\n")
     md.append("- **Clinical Rating Scale**: Movement Disorder Society Unified Parkinson's Disease Rating Scale (MDS-UPDRS) Part III (Motor Examination), alongside traditional UPDRS Part III.")
     md.append("- **Target Definition**: The intended research target is an individual ordinal motor severity score from 0 to 4 (0 = Normal, 1 = Slight, 2 = Mild, 3 = Moderate, 4 = Severe).")
-    md.append("- **Current Label Availability**: **0 verified clinical scores** are available in the workspace.")
+    verified_count = int(df_template["clinical_score"].notna().sum())
+    md.append(f"- **Current Label Availability**: **{verified_count} task-level scores** are available (healthy cohort ground truth plus Clinical Score.xlsx mappings).")
     md.append("- **Audit of Existing Workbooks**: `UPDRS Assessment Sheet.xlsx` and `Patient Tests and Parameters for Data Collection.xlsx` were inspected cell-by-cell. Both workbooks are protocol/rubric reference templates. No clinical examination ratings were populated for any participant.\n")
 
     md.append("## 2. Ethical and Methodological Supervised Learning Rules\n")
@@ -272,4 +277,3 @@ if __name__ == "__main__":
     df_r, _, _ = build_master_datasets()
     tmpl, unres = generate_label_mapping_artifacts(df_r)
     print(f"Label mapping artifacts generated: {len(tmpl)} rows in template, {len(unres)} unresolved items.")
-

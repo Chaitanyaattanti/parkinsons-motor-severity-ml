@@ -1,0 +1,10 @@
+participant_id,diagnosis_group,Arm Extended Forward,Finger Tapping,Finger to Nose,Fist Open and Close,Hand Resting,Normal Walking,Pronation Supination,Quiet Standing,Sit-to-Stand,TUG,Turning Task
+Atypical_PD001,Atypical Parkinsonism,Missing,Missing,Missing,Missing,Missing,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing
+HP001,Healthy,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+HP002,Healthy,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+HP003,Healthy,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+HP004,Healthy,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+HP005,Healthy,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+HP006,Healthy,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+PD001,Parkinson's Disease,Valid Signal,Valid Signal,Valid Signal,Missing,Valid Signal,Missing,Missing,Missing,Missing,Missing,Missing
+PD002,Parkinson's Disease,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal,Valid Signal

@@ -191,7 +191,7 @@ def plot_feature_distributions(df_rec: pd.DataFrame, out_path: Path) -> None:
                 labels.append(f"{g_name}\n(N={len(vals)})")
 
         if groups:
-            box = ax.boxplot(groups, tick_labels=labels, patch_artist=True, showmeans=True)
+            box = ax.boxplot(groups, labels=labels, patch_artist=True, showmeans=True)
             colors = ["#7293cb", "#e1974c"]
             for patch, col in zip(box["boxes"], colors):
                 patch.set_facecolor(col)

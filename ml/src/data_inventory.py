@@ -21,6 +21,7 @@ from src.config import DEFAULT_CONFIG, PipelineConfig
 
 TASK_CANONICAL_MAP = {
     "hand resting": "Hand Resting",
+    "arm resting": "Hand Resting",
     "arm extended forward": "Arm Extended Forward",
     "finger tapping": "Finger Tapping",
     "finger to nose": "Finger to Nose",
@@ -65,7 +66,7 @@ def parse_participant_and_group(rel_path: Path) -> tuple[str, str, str, bool]:
         elif "PD Patients" in part_clean:
             group = "Parkinson's Disease"
 
-        # Check for HP patterns: HP001, HP002, HP003
+        # Check for HP patterns, including the moved healthy participants HP004-HP006.
         if re.match(r"^HP\d+$", part_clean, re.IGNORECASE):
             participant_id = part_clean.upper()
             session_id = "20260911"  # From verified device metadata
@@ -315,7 +316,7 @@ def generate_markdown_summary(df_inv: pd.DataFrame, df_matrix: pd.DataFrame, out
     md.append(f"- **Recordings Passing Initial Validity**: {valid_count} ({valid_count / n_files * 100:.1f}%)")
     md.append(f"- **Recordings with Quality Warnings**: {warning_count}")
     md.append(f"- **Unreadable / Invalid Files**: {invalid_count}")
-    md.append(f"- **Verified Clinical Labels Available**: 0 (All clinical scores are currently MISSING/UNRESOLVED)\n")
+    md.append("- **Clinical label source**: Healthy recordings use cohort ground truth 0; PD task scores are sourced from `Clinical Score.xlsx` during dataset construction.\n")
 
     md.append("## Participant-by-Task Coverage Matrix\n")
     md.append(df_matrix.to_markdown(index=False))
@@ -329,7 +330,7 @@ def generate_markdown_summary(df_inv: pd.DataFrame, df_matrix: pd.DataFrame, out
     md.append("## Key Findings & Critical Data Observations\n")
     md.append("1. **Complete Motor Battery Asymmetry**: Only `PD002` completed the full 11-task battery. `HP001`, `HP002`, `HP003`, and `PD001` completed exactly 4 upper-limb tasks (`Hand Resting`, `Arm Extended Forward`, `Finger Tapping`, `Finger to Nose`). `Atypical_PD001` completed only 2 tasks (`Normal Walking`, `Quiet Standing`).")
     md.append("2. **Nominal vs. Hardware Clock Discrepancy**: Device software outputs regular synthetic timestamps (e.g. 0.1s in HP/PD001, 0.05s in PD002) while internal `Metadata Time` reveals the actual hardware duration was ~61s rather than 88s, yielding a true acquisition rate of ~14.3 Hz rather than nominal 10 Hz / 20 Hz.")
-    md.append("3. **Absence of Clinical Severity Labels**: `UPDRS Assessment Sheet.xlsx` is an empty clinical evaluation rubric with no patient scores. No clinical 0-4 ratings have been recorded in the workspace.\n")
+    md.append("3. **Clinical label provenance**: `UPDRS Assessment Sheet.xlsx` is an empty rubric; task-level scores are supplied separately by `Clinical Score.xlsx` for PD001, PD002, and Atypical_PD001. Healthy recordings use the explicitly documented cohort-zero assumption.\n")
 
     out_path.write_text("\n".join(md), encoding="utf-8")
 
@@ -337,4 +338,3 @@ def generate_markdown_summary(df_inv: pd.DataFrame, df_matrix: pd.DataFrame, out
 if __name__ == "__main__":
     inv, mat = run_inventory()
     print(f"Inventory complete: {len(inv)} files inventoried across {inv['participant_id'].nunique()} participants.")
-

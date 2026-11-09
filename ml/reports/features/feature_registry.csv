@@ -1,0 +1,59 @@
+name,description,category,formula,unit,required_inputs,validity_requirements,task_applicability,validation_status
+signal_mean,Arithmetic mean of the normalized resistance signal,basic_statistics,sum(y) / N,dimensionless,signal,"N >= 4, all finite",all,exploratory
+signal_median,50th percentile (median) of the normalized resistance signal,basic_statistics,median(y),dimensionless,signal,N >= 4,all,exploratory
+signal_std,Sample standard deviation (ddof=1) of normalized resistance signal,basic_statistics,sqrt(sum((y - mean(y))^2) / (N - 1)),dimensionless,signal,N >= 4,all,exploratory
+signal_var,Sample variance (ddof=1) of normalized resistance signal,basic_statistics,sum((y - mean(y))^2) / (N - 1),dimensionless,signal,N >= 4,all,exploratory
+signal_min,Minimum value of normalized resistance signal,basic_statistics,min(y),dimensionless,signal,N >= 4,all,exploratory
+signal_max,Maximum value of normalized resistance signal,basic_statistics,max(y),dimensionless,signal,N >= 4,all,exploratory
+signal_range,Full amplitude range (max - min) of normalized resistance signal,basic_statistics,max(y) - min(y),dimensionless,signal,N >= 4,all,exploratory
+signal_rms,Root mean square of normalized resistance signal,basic_statistics,sqrt(mean(y^2)),dimensionless,signal,N >= 4,all,exploratory
+signal_abs_mean,Mean absolute value of normalized resistance signal,basic_statistics,mean(|y|),dimensionless,signal,N >= 4,all,exploratory
+signal_mad_mean,Mean absolute deviation from the mean,basic_statistics,mean(|y - mean(y)|),dimensionless,signal,N >= 4,all,exploratory
+signal_mad_median,Median absolute deviation (MAD) from the median,basic_statistics,median(|y - median(y)|),dimensionless,signal,N >= 4,all,exploratory
+signal_iqr,Interquartile range (75th - 25th percentile),basic_statistics,"percentile(y, 75) - percentile(y, 25)",dimensionless,signal,N >= 4,all,exploratory
+signal_p10,10th percentile of normalized resistance signal,basic_statistics,"percentile(y, 10)",dimensionless,signal,N >= 4,all,exploratory
+signal_p25,25th percentile of normalized resistance signal,basic_statistics,"percentile(y, 25)",dimensionless,signal,N >= 4,all,exploratory
+signal_p75,75th percentile of normalized resistance signal,basic_statistics,"percentile(y, 75)",dimensionless,signal,N >= 4,all,exploratory
+signal_p90,90th percentile of normalized resistance signal,basic_statistics,"percentile(y, 90)",dimensionless,signal,N >= 4,all,exploratory
+signal_skewness,Fisher-Pearson standardized skewness coefficient,basic_statistics,m3 / s^3,dimensionless,signal,"N >= 8, std > 1e-12",all,exploratory
+signal_kurtosis,Fisher excess kurtosis (normal distribution = 0),basic_statistics,(m4 / s^4) - 3,dimensionless,signal,"N >= 8, std > 1e-12",all,exploratory
+diff_mean,Mean of consecutive signal sample differences,first_difference,mean(diff(y)),dimensionless,signal,N >= 4,all,exploratory
+diff_std,Standard deviation of consecutive signal sample differences,first_difference,"std(diff(y), ddof=1)",dimensionless,signal,N >= 4,all,exploratory
+diff_abs_mean,Mean absolute first difference (measure of signal roughness),first_difference,mean(|diff(y)|),dimensionless,signal,N >= 4,all,exploratory
+diff_rms,Root mean square of consecutive signal sample differences,first_difference,sqrt(mean(diff(y)^2)),dimensionless,signal,N >= 4,all,exploratory
+diff_abs_max,Maximum absolute difference between consecutive samples,first_difference,max(|diff(y)|),dimensionless,signal,N >= 4,all,exploratory
+diff2_std,Standard deviation of second differences (signal acceleration proxy),first_difference,"std(diff(diff(y)), ddof=1)",dimensionless,signal,N >= 6,all,exploratory
+total_variation,Total variation (sum of absolute differences across entire trial),first_difference,sum(|diff(y)|),dimensionless,signal,N >= 4,all,exploratory
+normalized_total_variation,Total variation normalized by recording duration,first_difference,total_variation / duration_s,1/s,"signal, time","N >= 4, duration > 0",all,exploratory
+derivative_abs_mean,Mean absolute rate of change accounting for physical elapsed time,first_difference,mean(|diff(y) / diff(t)|),1/s,"signal, time","N >= 4, diff(t) > 0",all,exploratory
+derivative_rms,RMS rate of change accounting for physical elapsed time,first_difference,sqrt(mean((diff(y) / diff(t))^2)),1/s,"signal, time","N >= 4, diff(t) > 0",all,exploratory
+robust_amplitude_range,Robust amplitude range between 90th and 10th percentiles,distribution_amplitude,"percentile(y, 90) - percentile(y, 10)",dimensionless,signal,N >= 4,all,exploratory
+coefficient_of_variation,Ratio of std to absolute mean; NaN if mean near zero,distribution_amplitude,std(y) / |mean(y)| if |mean(y)| >= 1e-5 else NaN,dimensionless,signal,|mean(y)| >= 1e-5,all,exploratory
+crest_factor,Ratio of peak absolute amplitude to RMS amplitude,distribution_amplitude,max(|y|) / rms(y),dimensionless,signal,rms(y) > 1e-12,all,exploratory
+zero_crossing_count,Number of mean-centered baseline crossings in trial,zero_crossing,count(sign(y_centered[i]) != sign(y_centered[i+1])),count,signal_centered,N >= 4,all,exploratory
+zero_crossing_rate,Baseline crossings per second of recording,zero_crossing,zero_crossing_count / duration_s,1/s,"signal_centered, time",duration_s > 0,all,exploratory
+peak_count,Number of prominent peaks detected on centered signal,peak_oscillation,"scipy.signal.find_peaks(y_centered, prominence=0.4*std, distance=0.15s*fs)",count,"signal_centered, fs","N >= 10, std > 1e-12",all,exploratory
+peak_rate_per_sec,Peak count divided by recording duration,peak_oscillation,peak_count / duration_s,1/s,"signal_centered, time",duration_s > 0,all,exploratory
+peak_prominence_mean,Mean prominence of detected peaks,peak_oscillation,mean(peak_prominences),dimensionless,signal_centered,peak_count >= 1,all,exploratory
+peak_interval_mean_s,Mean time interval between consecutive peaks,peak_oscillation,mean(diff(peak_times)),s,"signal_centered, time",peak_count >= 2,all,exploratory
+peak_interval_cv,Coefficient of variation of inter-peak intervals (oscillation regularity),peak_oscillation,std(diff(peak_times)) / mean(diff(peak_times)),dimensionless,"signal_centered, time",peak_count >= 3,all,exploratory
+dominant_frequency_hz,Dominant frequency within observable frequency band (0.5 to Nyquist),frequency_domain,freq[argmax(PSD[0.5 <= f <= Nyquist])],Hz,"signal_detrended, fs","fs >= 2.0, N >= 16",all,exploratory
+spectral_centroid_hz,Center of mass of power spectrum within observable band,frequency_domain,sum(f * PSD) / sum(PSD),Hz,"signal_detrended, fs","fs >= 2.0, N >= 16",all,exploratory
+spectral_entropy,Normalized spectral entropy of power distribution,frequency_domain,-sum(p_norm * log2(p_norm)) / log2(n_bins),dimensionless,"signal_detrended, fs","fs >= 2.0, N >= 16",all,exploratory
+band_power_low_0_5_to_3_0_hz,Spectral power in low-frequency voluntary/movement band (0.5 - 3.0 Hz),frequency_domain,trapz(PSD[0.5 <= f < 3.0]),dimensionless^2,"signal_detrended, fs",fs >= 6.0,all,exploratory
+band_power_parkinsonian_3_0_to_5_0_hz,Spectral power in Parkinsonian resting tremor band (3.0 - 5.0 Hz),frequency_domain,trapz(PSD[3.0 <= f <= 5.0]),dimensionless^2,"signal_detrended, fs",fs >= 10.0 (Nyquist >= 5.0 Hz),all,exploratory
+band_power_high_5_0_to_10_0_hz,Spectral power in postural/action tremor band (5.0 - 10.0 Hz). Gated by Nyquist.,frequency_domain,trapz(PSD[5.0 <= f <= 10.0]) if fs >= 20.0 else NaN,dimensionless^2,"signal_detrended, fs",fs >= 20.0 (Nyquist >= 10.0 Hz),all,exploratory
+tremor_power_ratio,Ratio of Parkinsonian band power (3-5 Hz) to low frequency band power (0.5-3 Hz),frequency_domain,band_power_3_to_5_hz / band_power_0_5_to_3_hz,dimensionless,"signal_detrended, fs",fs >= 10.0,all,exploratory
+postural_drift_slope,Linear drift rate over time during sustained posture,task_specific,"polyfit(time, signal, deg=1)[0]",1/s,"signal, time","Arm Extended Forward task, N >= 10",Arm Extended Forward,exploratory
+postural_fatigue_ratio,Ratio of signal RMS in second half to first half of trial,task_specific,rms(signal[second_half]) / rms(signal[first_half]),dimensionless,signal,"Arm Extended Forward task, N >= 20",Arm Extended Forward,exploratory
+tap_count,Number of detected finger tapping events,task_specific,scipy.signal.find_peaks on tap motion prominence,count,"signal, time, fs",Finger Tapping task,Finger Tapping,exploratory
+tap_rate_hz,Finger tapping repetition frequency,task_specific,tap_count / duration_s,Hz,"signal, time","Finger Tapping task, duration_s > 0",Finger Tapping,exploratory
+tap_interval_mean_s,Average interval between consecutive finger taps,task_specific,mean(diff(tap_times)),s,"signal, time","Finger Tapping task, tap_count >= 2",Finger Tapping,exploratory
+tap_interval_cv,Coefficient of variation of tap intervals (bradykinetic rhythm stability),task_specific,std(diff(tap_times)) / mean(diff(tap_times)),dimensionless,"signal, time","Finger Tapping task, tap_count >= 3",Finger Tapping,exploratory
+tap_amplitude_mean,Average amplitude of detected tap excursions,task_specific,mean(tap_prominences),dimensionless,signal,"Finger Tapping task, tap_count >= 1",Finger Tapping,exploratory
+tap_amplitude_decrement_slope,Rate of decrease in tap amplitude across consecutive repetitions,task_specific,"polyfit(range(tap_count), tap_prominences, deg=1)[0]",dimensionless/tap,signal,"Finger Tapping task, tap_count >= 4",Finger Tapping,exploratory
+movement_smoothness_jerk_proxy,Normalized jerk proxy measuring movement trajectory smoothness,task_specific,sqrt(mean((diff(diff(y)) / dt^2)^2)) / duration_s,1/s^3,"signal, time","Finger to Nose task, N >= 10",Finger to Nose,exploratory
+gait_step_count_proxy,Number of detected gait cyclic foot-contact events,task_specific,count(cyclic signal excursions exceeding adaptive threshold),count,"signal, fs",Normal Walking / Turning task,"Normal Walking, Turning Task",exploratory
+gait_cadence_steps_per_min,Estimated gait cadence in steps per minute,task_specific,(gait_step_count_proxy / duration_s) * 60,steps/min,"signal, time","Normal Walking / Turning task, duration_s > 0","Normal Walking, Turning Task",exploratory
+postural_sway_variability,Standard deviation of resistance during quiet standing,task_specific,"std(signal, ddof=1)",dimensionless,signal,"Quiet Standing task, N >= 10",Quiet Standing,exploratory
+transition_duration_s,Total duration of functional mobility transition,task_specific,time_end - time_start,s,time,"Sit-to-Stand, TUG tasks","Sit-to-Stand, TUG",exploratory

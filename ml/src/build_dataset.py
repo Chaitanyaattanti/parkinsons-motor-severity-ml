@@ -1,7 +1,7 @@
 """Master dataset construction module for Parkinson's motor severity pipeline.
 
 Builds recording-level, participant-task aggregated, and long-form feature datasets
-while strictly preserving participant identity, missing data flags, and clinical label absence.
+while preserving participant identity and recording quality metadata.
 """
 
 from __future__ import annotations
@@ -36,6 +36,45 @@ TASK_SENSOR_LOCATIONS = {
     "Turning Task": "Lower Limb/Shoe Insole",
 }
 
+CLINICAL_SCORE_ITEM_BY_TASK = {
+    "Hand Resting": 6,
+    "Arm Extended Forward": 21,
+    "Finger Tapping": 11,
+    "Finger to Nose": 21,
+    "Fist Open and Close": 12,
+    "Pronation Supination": 13,
+    "Quiet Standing": 17,
+    "Normal Walking": 16,
+    "Sit-to-Stand": 15,
+    "Turning Task": 19,
+    "TUG": 15,
+}
+
+
+def load_clinical_scores(config: PipelineConfig) -> dict[tuple[str, str], float]:
+    """Load verified task scores from the supplied Clinical Score workbook."""
+    workbook_path = config.project_root / config.clinical_score_workbook
+    if not workbook_path.exists():
+        return {}
+
+    scores: dict[tuple[str, str], float] = {}
+    wb = openpyxl.load_workbook(workbook_path, read_only=True, data_only=True)
+    for sheet_name in wb.sheetnames:
+        participant_id = "Atypical_PD001" if sheet_name == "A_PD001" else sheet_name
+        for row in wb[sheet_name].iter_rows(values_only=True):
+            item, score = row[0], row[3] if len(row) > 3 else None
+            if not isinstance(item, str) or not isinstance(score, (int, float)):
+                continue
+            match = item.split(".", 1)[0]
+            if not match.isdigit():
+                continue
+            item_number = int(match)
+            for task, mapped_item in CLINICAL_SCORE_ITEM_BY_TASK.items():
+                if item_number == mapped_item:
+                    scores[(participant_id, task)] = float(score)
+    wb.close()
+    return scores
+
 
 def build_master_datasets(config: PipelineConfig | None = None) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Process all discovered recordings, extract all features, and construct master tables."""
@@ -44,6 +83,7 @@ def build_master_datasets(config: PipelineConfig | None = None) -> tuple[pd.Data
     root = cfg.project_root
 
     preprocessor = SignalPreprocessor(cfg)
+    clinical_scores = load_clinical_scores(cfg)
 
     # 1. Discover all files
     search_dirs = [root / cfg.healthy_dir_name, root / cfg.pd_dir_name]
@@ -64,7 +104,11 @@ def build_master_datasets(config: PipelineConfig | None = None) -> tuple[pd.Data
         rel_path = fpath.relative_to(root)
         task = canonicalize_task(fpath.stem)
         participant_id, diagnosis_group, session_id, _ = parse_participant_and_group(rel_path)
-        recording_id = f"REC_{participant_id}_{task.replace(' ', '_')}_{session_id}"
+        recording_id = f"REC_{participant_id}_{rel_path.stem.replace(' ', '_')}"
+        sensor_side = next(
+            (part for part in rel_path.parts if part in {"Dominant", "Non-dominant"}),
+            "Unspecified",
+        )
 
         # Load raw file
         if fpath.suffix.lower() == ".xlsx":
@@ -92,6 +136,8 @@ def build_master_datasets(config: PipelineConfig | None = None) -> tuple[pd.Data
         task_feats = extract_task_specific_features(proc, cfg)
 
         # Assemble master recording record
+        workbook_score = clinical_scores.get((participant_id, task))
+        is_healthy = diagnosis_group == "Healthy"
         rec_dict: dict[str, Any] = {
             "recording_id": recording_id,
             "participant_id": participant_id,
@@ -100,17 +146,28 @@ def build_master_datasets(config: PipelineConfig | None = None) -> tuple[pd.Data
             "task": task,
             "file_path": str(rel_path),
             "file_type": fpath.suffix.lower(),
-            "sensor_side": "Unspecified",
+            "sensor_side": sensor_side,
+            "hand_side_code": (
+                1.0 if sensor_side == "Dominant"
+                else 0.0 if sensor_side == "Non-dominant"
+                else np.nan
+            ),
             "sensor_location": TASK_SENSOR_LOCATIONS.get(task, "Unspecified"),
             "signal_column_used": qc.signal_selected,
             "recording_duration_s": proc.duration_s,
             "sampling_rate_hz": proc.fs_effective,
             "quality_status": qc.quality_status,
             "quality_warnings": "; ".join(qc.warnings) if qc.warnings else "None",
-            # Clinical label is strictly unassigned - NO fake labels
-            "clinical_score": np.nan,
-            "clinical_score_source": "Unresolved / None Available",
-            "label_verified": False,
+            # Healthy controls define the study's zero-severity ground truth.
+            "clinical_score": 0.0 if is_healthy else workbook_score,
+            "clinical_score_source": (
+                "Healthy control ground truth (study cohort definition)"
+                if is_healthy
+                else "Clinical Score.xlsx Part III task mapping"
+                if workbook_score is not None
+                else "Unresolved / None Available"
+            ),
+            "label_verified": not is_healthy and workbook_score is not None,
         }
 
         # Merge feature dictionaries
@@ -149,10 +206,25 @@ def build_master_datasets(config: PipelineConfig | None = None) -> tuple[pd.Data
     df_part_task.columns = [f"{col}_{stat}" for col, stat in df_part_task.columns]
     df_part_task = df_part_task.reset_index()
 
-    # Add clinical score placeholders
-    df_part_task["clinical_score"] = np.nan
-    df_part_task["clinical_score_source"] = "Unresolved / None Available"
-    df_part_task["label_verified"] = False
+    # Propagate task-level labels while averaging repeated side/trial recordings.
+    label_summary = (
+        df_rec.groupby(id_cols, dropna=False)
+        .agg(
+            clinical_score=("clinical_score", "mean"),
+            label_verified=("label_verified", "all"),
+        )
+        .reset_index()
+    )
+    df_part_task = df_part_task.merge(label_summary, on=id_cols, how="left")
+    df_part_task["clinical_score_source"] = np.where(
+        df_part_task["diagnosis"].eq("Healthy"),
+        "Healthy control ground truth (study cohort definition)",
+        np.where(
+            df_part_task["clinical_score"].notna(),
+            "Clinical Score.xlsx Part III task mapping",
+            "Unresolved / None Available",
+        ),
+    )
 
     part_task_csv_path = cfg.features_dir / "participant_task_features.csv"
     df_part_task.to_csv(part_task_csv_path, index=False)
@@ -176,4 +248,3 @@ if __name__ == "__main__":
     print(f"  Recording-level: {r.shape[0]} rows, {r.shape[1]} columns")
     print(f"  Participant-task: {pt.shape[0]} rows, {pt.shape[1]} columns")
     print(f"  Long-form: {l.shape[0]} rows")
-

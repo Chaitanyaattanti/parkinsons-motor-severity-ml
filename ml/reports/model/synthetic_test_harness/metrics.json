@@ -1,0 +1,74 @@
+{
+  "status": "SUCCESS",
+  "target": "clinical_score",
+  "n_participants": 6,
+  "n_recordings": 24,
+  "n_features_used": 10,
+  "features": [
+    "signal_mean",
+    "signal_std",
+    "signal_rms",
+    "signal_range",
+    "diff_abs_mean",
+    "total_variation",
+    "peak_rate_per_sec",
+    "dominant_frequency_hz",
+    "spectral_entropy",
+    "band_power_parkinsonian_3_0_to_5_0_hz"
+  ],
+  "selected_model": "random_forest",
+  "models": {
+    "random_forest": {
+      "mae": 0.5,
+      "rmse": 0.7071067811865476,
+      "pearson_r": 0.8429272304235245,
+      "r2": 0.625,
+      "pct_in_range_0_to_4": 100.0,
+      "accuracy": 0.5,
+      "macro_f1": 0.21428571428571427,
+      "ordinal_mae": 0.5,
+      "confusion_matrix": {
+        "0": {
+          "0": 12,
+          "1": 4,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        },
+        "1": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 0,
+          "4": 0
+        },
+        "2": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 4,
+          "4": 0
+        },
+        "3": {
+          "0": 0,
+          "1": 0,
+          "2": 2,
+          "3": 0,
+          "4": 0
+        },
+        "4": {
+          "0": 0,
+          "1": 0,
+          "2": 0,
+          "3": 0,
+          "4": 0
+        }
+      }
+    }
+  },
+  "warnings": [
+    "Small sample size (N=6 participants). Results have high uncertainty.",
+    "Grouped cross-validation was strictly maintained by participant_id.",
+    "Random Forest predictions are evaluated as continuous estimates and rounded to ordinal scores 0-4."
+  ]
+}

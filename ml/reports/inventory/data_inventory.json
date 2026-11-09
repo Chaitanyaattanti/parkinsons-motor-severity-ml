@@ -1,0 +1,2401 @@
+[
+  {
+    "file_path": "Healthy Participants/HP001/Arm Extended Forward.xlsx",
+    "filename": "Arm Extended Forward.xlsx",
+    "participant_id": "HP001",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "R0",
+      "R",
+      "\u0394R",
+      "\u0394R/R0"
+    ],
+    "n_rows": 886,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "R"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 88.6,
+    "time_duration_s": 88.5,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.120406337367377e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.1777835416724,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.2s but timestamp span is 88.5s (diff = 26.3s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP001/Finger Tapping.xlsx",
+    "filename": "Finger Tapping.xlsx",
+    "participant_id": "HP001",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "R0",
+      "R",
+      "\u0394R",
+      "\u0394R/R0"
+    ],
+    "n_rows": 887,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "R"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 88.7,
+    "time_duration_s": 88.60000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.128033732052629e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.24712841666769,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.2s but timestamp span is 88.6s (diff = 26.4s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP001/Finger to Nose.xlsx",
+    "filename": "Finger to Nose.xlsx",
+    "participant_id": "HP001",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 911,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 91.1,
+    "time_duration_s": 91.0,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.224080424217161e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 63.92671933333622,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 63.9s but timestamp span is 91.0s (diff = 27.1s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP001/Hand Resting.xlsx",
+    "filename": "Hand Resting.xlsx",
+    "participant_id": "HP001",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 890,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 89.0,
+    "time_duration_s": 88.9,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.139750874531845e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.415907416667324,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.4s but timestamp span is 88.9s (diff = 26.5s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP002/Arm Extended Forward.xlsx",
+    "filename": "Arm Extended Forward.xlsx",
+    "participant_id": "HP002",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 908,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 90.8,
+    "time_duration_s": 90.7,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.213120392873296e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 63.73187170835445,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 63.7s but timestamp span is 90.7s (diff = 27.0s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP002/Finger Tapping.xlsx",
+    "filename": "Finger Tapping.xlsx",
+    "participant_id": "HP002",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 895,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 89.5,
+    "time_duration_s": 89.4,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.1608606823857215e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.795102833304554,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.8s but timestamp span is 89.4s (diff = 26.6s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP002/Finger to Nose.xlsx",
+    "filename": "Finger to Nose.xlsx",
+    "participant_id": "HP002",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 889,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 88.9,
+    "time_duration_s": 88.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.137698309488289e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.38362016668543,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.4s but timestamp span is 88.8s (diff = 26.4s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP002/Hand Resting.xlsx",
+    "filename": "Hand Resting.xlsx",
+    "participant_id": "HP002",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 874,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.4,
+    "time_duration_s": 87.30000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.07209177458458e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.302872833330184,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.3s but timestamp span is 87.3s (diff = 26.0s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP003/Arm Extended Forward.xlsx",
+    "filename": "Arm Extended Forward.xlsx",
+    "participant_id": "HP003",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 879,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.9,
+    "time_duration_s": 87.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.0943271616078186e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.6686150416499,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.7s but timestamp span is 87.8s (diff = 26.1s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP003/Finger Tapping.xlsx",
+    "filename": "Finger Tapping.xlsx",
+    "participant_id": "HP003",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 869,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 86.9,
+    "time_duration_s": 86.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.0494760104682974e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 60.98550120834261,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.0s but timestamp span is 86.8s (diff = 25.8s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP003/Finger to Nose.xlsx",
+    "filename": "Finger to Nose.xlsx",
+    "participant_id": "HP003",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 877,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.7,
+    "time_duration_s": 87.60000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.084348974696562e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.53350600000704,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.5s but timestamp span is 87.6s (diff = 26.1s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP003/Hand Resting.xlsx",
+    "filename": "Hand Resting.xlsx",
+    "participant_id": "HP003",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 872,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.2,
+    "time_duration_s": 87.10000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.061950196799235e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.23463058331981,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.2s but timestamp span is 87.1s (diff = 25.9s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Dominant/Arm Extended Forward_1.xlsx",
+    "filename": "Arm Extended Forward_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "TIME",
+      "CH1"
+    ],
+    "n_rows": 865,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "TIME"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 86.5,
+    "time_duration_s": 86.4,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.02877088452286e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Dominant/Arm Resting_1.xlsx",
+    "filename": "Arm Resting_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "TIME",
+      "CH1"
+    ],
+    "n_rows": 863,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "TIME"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 86.3,
+    "time_duration_s": 86.2,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.018309607792195e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Dominant/Finger Tapping_1.xlsx",
+    "filename": "Finger Tapping_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "TIME",
+      "CH1"
+    ],
+    "n_rows": 865,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "TIME"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 86.5,
+    "time_duration_s": 86.4,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.02877088452286e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Dominant/Finger to Nose_1.xlsx",
+    "filename": "Finger to Nose_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "TIME",
+      "CH1"
+    ],
+    "n_rows": 892,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "TIME"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 89.2,
+    "time_duration_s": 89.10000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.149339782989579e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Non-dominant/Finger Tapping_1.xlsx",
+    "filename": "Finger Tapping_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "Time",
+      "Resistance"
+    ],
+    "n_rows": 870,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.0,
+    "time_duration_s": 86.9,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.0517250820208e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Non-dominant/Finger to Nose_1.xlsx",
+    "filename": "Finger to Nose_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "TIME",
+      "Resistance"
+    ],
+    "n_rows": 877,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "TIME"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.7,
+    "time_duration_s": 87.60000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.084348974696562e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP004/Non-dominant/Hand Resting_1.xlsx",
+    "filename": "Hand Resting_1.xlsx",
+    "participant_id": "HP004",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "TIME",
+      "CH1"
+    ],
+    "n_rows": 864,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "TIME"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 86.4,
+    "time_duration_s": 86.30000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.026468944538118e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Dominant/Arm Extended Forward_2.xlsx",
+    "filename": "Arm Extended Forward_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 879,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.9,
+    "time_duration_s": 87.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.0943271616078186e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.6686150416499,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.7s but timestamp span is 87.8s (diff = 26.1s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Dominant/Arm Resting_2.xlsx",
+    "filename": "Arm Resting_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 872,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.2,
+    "time_duration_s": 87.10000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.061950196799235e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.23463058331981,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.2s but timestamp span is 87.1s (diff = 25.9s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Dominant/Finger Tapping_2.xlsx",
+    "filename": "Finger Tapping_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 869,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 86.9,
+    "time_duration_s": 86.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.0494760104682974e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 60.98550120834261,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.0s but timestamp span is 86.8s (diff = 25.8s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Dominant/Finger to Nose_2.xlsx",
+    "filename": "Finger to Nose_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 877,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.7,
+    "time_duration_s": 87.60000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.084348974696562e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.53350600000704,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.5s but timestamp span is 87.6s (diff = 26.1s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Non-dominant/Finger Tapping_2.xlsx",
+    "filename": "Finger Tapping_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1",
+      "Data In",
+      "Data Out",
+      "Settings",
+      "Manifest"
+    ],
+    "columns": [],
+    "n_rows": 0,
+    "n_cols": 0,
+    "candidate_time_cols": [],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": NaN,
+    "time_end_s": NaN,
+    "time_duration_s": NaN,
+    "sampling_interval_median_s": NaN,
+    "sampling_interval_std_s": NaN,
+    "sampling_rate_hz_estimated": NaN,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "INVALID_TOO_SHORT",
+    "warnings": [
+      "Row count 0 is below minimum threshold 10"
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Non-dominant/Finger to Nose_2.xlsx",
+    "filename": "Finger to Nose_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1",
+      "Data In",
+      "Data Out",
+      "Settings",
+      "Manifest"
+    ],
+    "columns": [],
+    "n_rows": 0,
+    "n_cols": 0,
+    "candidate_time_cols": [],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": NaN,
+    "time_end_s": NaN,
+    "time_duration_s": NaN,
+    "sampling_interval_median_s": NaN,
+    "sampling_interval_std_s": NaN,
+    "sampling_rate_hz_estimated": NaN,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "INVALID_TOO_SHORT",
+    "warnings": [
+      "Row count 0 is below minimum threshold 10"
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP005/Non-dominant/Hand Resting_2.xlsx",
+    "filename": "Hand Resting_2.xlsx",
+    "participant_id": "HP005",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "Sheet1",
+      "Data In",
+      "Data Out",
+      "Settings"
+    ],
+    "columns": [],
+    "n_rows": 0,
+    "n_cols": 0,
+    "candidate_time_cols": [],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": NaN,
+    "time_end_s": NaN,
+    "time_duration_s": NaN,
+    "sampling_interval_median_s": NaN,
+    "sampling_interval_std_s": NaN,
+    "sampling_rate_hz_estimated": NaN,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "INVALID_TOO_SHORT",
+    "warnings": [
+      "Row count 0 is below minimum threshold 10"
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Dominant/Arm Extended Forward_3.xlsx",
+    "filename": "Arm Extended Forward_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "R0",
+      "R",
+      "\u0394R",
+      "\u0394R/R0"
+    ],
+    "n_rows": 886,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "R"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 88.6,
+    "time_duration_s": 88.5,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.120406337367377e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.1777835416724,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.2s but timestamp span is 88.5s (diff = 26.3s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Dominant/Arm Resting_3.xlsx",
+    "filename": "Arm Resting_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 890,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 89.0,
+    "time_duration_s": 88.9,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.139750874531845e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.415907416667324,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.4s but timestamp span is 88.9s (diff = 26.5s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Dominant/Finger Tapping_3.xlsx",
+    "filename": "Finger Tapping_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "R0",
+      "R",
+      "\u0394R",
+      "\u0394R/R0"
+    ],
+    "n_rows": 887,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "R"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 88.7,
+    "time_duration_s": 88.60000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.128033732052629e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.24712841666769,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.2s but timestamp span is 88.6s (diff = 26.4s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Dominant/Finger to Nose_3.xlsx",
+    "filename": "Finger to Nose_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "Time",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "\u0394R/R0"
+    ],
+    "n_rows": 911,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "\u0394R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 91.1,
+    "time_duration_s": 91.0,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.224080424217161e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 63.92671933333622,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 63.9s but timestamp span is 91.0s (diff = 27.1s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Non-dominant/Finger Tapping_3.xlsx",
+    "filename": "Finger Tapping_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 895,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 89.5,
+    "time_duration_s": 89.4,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.1608606823857215e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.795102833304554,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.8s but timestamp span is 89.4s (diff = 26.6s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Non-dominant/Finger to Nose_3.xlsx",
+    "filename": "Finger to Nose_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 889,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 88.9,
+    "time_duration_s": 88.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.137698309488289e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 62.38362016668543,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 62.4s but timestamp span is 88.8s (diff = 26.4s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "Healthy Participants/HP006/Non-dominant/Hand Resting_3.xlsx",
+    "filename": "Hand Resting_3.xlsx",
+    "participant_id": "HP006",
+    "diagnosis_group": "Healthy",
+    "session_id": "20260911",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "myData1",
+      "Unnamed: 3",
+      "Unnamed: 4"
+    ],
+    "n_rows": 874,
+    "n_cols": 5,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.4,
+    "time_duration_s": 87.30000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.07209177458458e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": 61.302872833330184,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.3s but timestamp span is 87.3s (diff = 26.0s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/Atypical_PD001/Normal Walking.xlsx",
+    "filename": "Normal Walking.xlsx",
+    "participant_id": "Atypical_PD001",
+    "diagnosis_group": "Atypical Parkinsonism",
+    "session_id": "20260917",
+    "task": "Normal Walking",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "myData1",
+      "myData2",
+      "myData3",
+      "myData4",
+      "myData5"
+    ],
+    "n_rows": 768,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 3072,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.030273958342149854,
+    "time_end_s": 53.86156104155816,
+    "time_duration_s": 53.83128708321601,
+    "sampling_interval_median_s": 0.06011895835399628,
+    "sampling_interval_std_s": 0.014236440557103632,
+    "sampling_rate_hz_estimated": 16.633688064116754,
+    "meta_experiment_duration_s": 53.8914622082375,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/Atypical_PD001/Quiet Standing.xlsx",
+    "filename": "Quiet Standing.xlsx",
+    "participant_id": "Atypical_PD001",
+    "diagnosis_group": "Atypical Parkinsonism",
+    "session_id": "20260917",
+    "task": "Quiet Standing",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "myData1",
+      "myData2",
+      "myData3",
+      "myData4",
+      "myData5"
+    ],
+    "n_rows": 146,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [],
+    "missing_values_count": 584,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.035558333271183074,
+    "time_end_s": 10.205605416675098,
+    "time_duration_s": 10.170047083403915,
+    "sampling_interval_median_s": 0.06022829166613519,
+    "sampling_interval_std_s": 0.014114775191220987,
+    "sampling_rate_hz_estimated": 16.603492683194833,
+    "meta_experiment_duration_s": 10.28470691666007,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD001_260903/Arm Extended Forward.csv",
+    "filename": "Arm Extended Forward.csv",
+    "participant_id": "PD001",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260903",
+    "task": "Arm Extended Forward",
+    "file_type": ".csv",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "Time",
+      "?R/R0"
+    ],
+    "n_rows": 899,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [
+      "?R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 89.9,
+    "time_duration_s": 89.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.17966840439603e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD001_260903/Finger Tapping.csv",
+    "filename": "Finger Tapping.csv",
+    "participant_id": "PD001",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260903",
+    "task": "Finger Tapping",
+    "file_type": ".csv",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "Time",
+      "?R/R0"
+    ],
+    "n_rows": 332,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [
+      "?R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 33.2,
+    "time_duration_s": 33.1,
+    "sampling_interval_median_s": 0.09999999999999998,
+    "sampling_interval_std_s": 1.3666256319226466e-15,
+    "sampling_rate_hz_estimated": 10.000000000000002,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD001_260903/Finger to Nose.csv",
+    "filename": "Finger to Nose.csv",
+    "participant_id": "PD001",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260903",
+    "task": "Finger to Nose",
+    "file_type": ".csv",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "Time",
+      "?R/R0"
+    ],
+    "n_rows": 354,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [
+      "?R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 35.4,
+    "time_duration_s": 35.3,
+    "sampling_interval_median_s": 0.10000000000000009,
+    "sampling_interval_std_s": 1.5186370706803532e-15,
+    "sampling_rate_hz_estimated": 9.999999999999991,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD001_260903/Hand Resting.csv",
+    "filename": "Hand Resting.csv",
+    "participant_id": "PD001",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260903",
+    "task": "Hand Resting",
+    "file_type": ".csv",
+    "worksheets": [
+      "Sheet1"
+    ],
+    "columns": [
+      "Time",
+      "?R/R0"
+    ],
+    "n_rows": 879,
+    "n_cols": 2,
+    "candidate_time_cols": [
+      "Time"
+    ],
+    "candidate_raw_r_cols": [],
+    "candidate_norm_r_cols": [
+      "?R/R0"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.1,
+    "time_end_s": 87.9,
+    "time_duration_s": 87.80000000000001,
+    "sampling_interval_median_s": 0.10000000000000142,
+    "sampling_interval_std_s": 4.0943271616078186e-15,
+    "sampling_rate_hz_estimated": 9.999999999999858,
+    "meta_experiment_duration_s": NaN,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Arm Extended Forward.xlsx",
+    "filename": "Arm Extended Forward.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Arm Extended Forward",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 855,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 42.74999999999971,
+    "time_duration_s": 42.69999999999971,
+    "sampling_interval_median_s": 0.05000000000000071,
+    "sampling_interval_std_s": 1.4849463039126324e-15,
+    "sampling_rate_hz_estimated": 19.999999999999716,
+    "meta_experiment_duration_s": 60.01893104170449,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 60.0s but timestamp span is 42.7s (diff = 17.3s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Finger Tapping.xlsx",
+    "filename": "Finger Tapping.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Finger Tapping",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 876,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.023327333270572126,
+    "time_end_s": 61.429792291717604,
+    "time_duration_s": 61.40646495844703,
+    "sampling_interval_median_s": 0.060102833434939384,
+    "sampling_interval_std_s": 0.01433245754104911,
+    "sampling_rate_hz_estimated": 16.63815069688001,
+    "meta_experiment_duration_s": 61.48172329168301,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Finger to Nose.xlsx",
+    "filename": "Finger to Nose.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Finger to Nose",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 864,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 43.2,
+    "time_duration_s": 43.150000000000006,
+    "sampling_interval_median_s": 0.05000000000000071,
+    "sampling_interval_std_s": 2.013234472269059e-15,
+    "sampling_rate_hz_estimated": 19.999999999999716,
+    "meta_experiment_duration_s": 60.648790500010364,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 60.6s but timestamp span is 43.2s (diff = 17.5s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Fist Open and Close.xlsx",
+    "filename": "Fist Open and Close.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Fist Open and Close",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 863,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.06137133331503719,
+    "time_end_s": 60.539329666644335,
+    "time_duration_s": 60.4779583333293,
+    "sampling_interval_median_s": 0.06013268750393763,
+    "sampling_interval_std_s": 0.014400894153711664,
+    "sampling_rate_hz_estimated": 16.629890355965173,
+    "meta_experiment_duration_s": 60.571859500021674,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Hand Resting.xlsx",
+    "filename": "Hand Resting.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Hand Resting",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 869,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 43.45,
+    "time_duration_s": 43.400000000000006,
+    "sampling_interval_median_s": 0.05000000000000071,
+    "sampling_interval_std_s": 2.0247380052341487e-15,
+    "sampling_rate_hz_estimated": 19.999999999999716,
+    "meta_experiment_duration_s": 60.95405837497674,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 61.0s but timestamp span is 43.4s (diff = 17.6s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Normal Walking.xlsx",
+    "filename": "Normal Walking.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Normal Walking",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "R",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 136,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "R"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 6.8,
+    "time_duration_s": 6.75,
+    "sampling_interval_median_s": 0.04999999999999982,
+    "sampling_interval_std_s": 2.590465319620121e-16,
+    "sampling_rate_hz_estimated": 20.00000000000007,
+    "meta_experiment_duration_s": 9.517135666683316,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Pronation Supination.xlsx",
+    "filename": "Pronation Supination.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Pronation Supination",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 861,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 1",
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05800541664939374,
+    "time_end_s": 60.38599387498107,
+    "time_duration_s": 60.327988458331674,
+    "sampling_interval_median_s": 0.060131020785775036,
+    "sampling_interval_std_s": 0.014519932017759276,
+    "sampling_rate_hz_estimated": 16.630351305071578,
+    "meta_experiment_duration_s": 60.417399791651405,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Quiet Standing.xlsx",
+    "filename": "Quiet Standing.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Quiet Standing",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 861,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 43.05,
+    "time_duration_s": 43.0,
+    "sampling_interval_median_s": 0.05000000000000071,
+    "sampling_interval_std_s": 2.0038927378071617e-15,
+    "sampling_rate_hz_estimated": 19.999999999999716,
+    "meta_experiment_duration_s": 60.435350249987096,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [
+      "Clock discrepancy: Metadata Time PAUSE is 60.4s but timestamp span is 43.0s (diff = 17.4s). Indicates software nominal time generation."
+    ],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Sit-to-Stand.xlsx",
+    "filename": "Sit-to-Stand.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Sit-to-Stand",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 126,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 6.3,
+    "time_duration_s": 6.25,
+    "sampling_interval_median_s": 0.04999999999999982,
+    "sampling_interval_std_s": 2.497508324207515e-16,
+    "sampling_rate_hz_estimated": 20.00000000000007,
+    "meta_experiment_duration_s": 8.86723237496335,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/TUG.xlsx",
+    "filename": "TUG.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "TUG",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 136,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 6.8,
+    "time_duration_s": 6.75,
+    "sampling_interval_median_s": 0.04999999999999982,
+    "sampling_interval_std_s": 2.590465319620121e-16,
+    "sampling_rate_hz_estimated": 20.00000000000007,
+    "meta_experiment_duration_s": 9.583064291626215,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  },
+  {
+    "file_path": "PD Patients/PD002_260917/Turning Task.xlsx",
+    "filename": "Turning Task.xlsx",
+    "participant_id": "PD002",
+    "diagnosis_group": "Parkinson's Disease",
+    "session_id": "260917",
+    "task": "Turning Task",
+    "file_type": ".xlsx",
+    "worksheets": [
+      "mySet",
+      "Metadata Device",
+      "Metadata Time"
+    ],
+    "columns": [
+      "myData0",
+      "Time",
+      "Unnamed: 2",
+      "myData1",
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "n_rows": 242,
+    "n_cols": 6,
+    "candidate_time_cols": [
+      "myData0",
+      "Time"
+    ],
+    "candidate_raw_r_cols": [
+      "Unnamed: 2",
+      "myData1"
+    ],
+    "candidate_norm_r_cols": [
+      "Unnamed: 4",
+      "Unnamed: 5"
+    ],
+    "missing_values_count": 0,
+    "duplicate_timestamps": 0,
+    "non_monotonic_timestamps": 0,
+    "time_start_s": 0.05,
+    "time_end_s": 12.1,
+    "time_duration_s": 12.049999999999999,
+    "sampling_interval_median_s": 0.04999999999999982,
+    "sampling_interval_std_s": 5.556582927522428e-16,
+    "sampling_rate_hz_estimated": 20.00000000000007,
+    "meta_experiment_duration_s": 17.003719500033185,
+    "can_parse": true,
+    "signal_validity": "VALID",
+    "warnings": [],
+    "errors": [],
+    "verified_clinical_label": "MISSING",
+    "participant_mapping_status": "Unambiguous"
+  }
+]

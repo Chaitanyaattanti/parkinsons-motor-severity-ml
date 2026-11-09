@@ -1,0 +1,51 @@
+participant_id,task,actual,predicted_score
+HP001,Arm Extended Forward,0.0,0
+HP001,Finger Tapping,0.0,0
+HP001,Finger to Nose,0.0,0
+HP001,Hand Resting,0.0,0
+HP002,Arm Extended Forward,0.0,0
+HP002,Finger Tapping,0.0,0
+HP002,Finger to Nose,0.0,0
+HP002,Hand Resting,0.0,0
+HP003,Arm Extended Forward,0.0,0
+HP003,Finger Tapping,0.0,0
+HP003,Finger to Nose,0.0,0
+HP003,Hand Resting,0.0,0
+HP004,Arm Extended Forward,0.0,0
+HP004,Hand Resting,0.0,0
+HP004,Finger Tapping,0.0,0
+HP004,Finger to Nose,0.0,0
+HP004,Finger Tapping,0.0,0
+HP004,Finger to Nose,0.0,0
+HP004,Hand Resting,0.0,0
+HP005,Arm Extended Forward,0.0,0
+HP005,Hand Resting,0.0,0
+HP005,Finger Tapping,0.0,0
+HP005,Finger to Nose,0.0,0
+HP005,Finger Tapping,0.0,0
+HP005,Finger to Nose,0.0,0
+HP005,Hand Resting,0.0,0
+HP006,Arm Extended Forward,0.0,0
+HP006,Hand Resting,0.0,0
+HP006,Finger Tapping,0.0,0
+HP006,Finger to Nose,0.0,0
+HP006,Finger Tapping,0.0,0
+HP006,Finger to Nose,0.0,0
+HP006,Hand Resting,0.0,0
+Atypical_PD001,Normal Walking,3.0,1
+Atypical_PD001,Quiet Standing,3.0,1
+PD001,Arm Extended Forward,2.0,1
+PD001,Finger Tapping,1.0,1
+PD001,Finger to Nose,2.0,1
+PD001,Hand Resting,2.0,1
+PD002,Arm Extended Forward,1.0,3
+PD002,Finger Tapping,1.0,3
+PD002,Finger to Nose,1.0,3
+PD002,Fist Open and Close,1.0,3
+PD002,Hand Resting,2.0,3
+PD002,Normal Walking,1.0,3
+PD002,Pronation Supination,1.0,3
+PD002,Quiet Standing,1.0,3
+PD002,Sit-to-Stand,1.0,3
+PD002,TUG,1.0,3
+PD002,Turning Task,1.0,3

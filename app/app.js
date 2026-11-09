@@ -390,16 +390,16 @@
         card.appendChild(question);
       }
 
-      // Rating Buttons (0 to 4)
       const ratingGroup = document.createElement('div');
       ratingGroup.className = 'rating-group';
 
-      [0, 1, 2, 3, 4, 'UR'].forEach(s => {
+      Object.keys(item.options).forEach(s => {
+        const score = Number(s);
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'score-btn';
-        btn.setAttribute('data-score', s);
-        if (currentScore === s) {
+        btn.setAttribute('data-score', score);
+        if (currentScore === score) {
           btn.classList.add('selected');
         }
 
@@ -408,23 +408,23 @@
 
         const numSpan = document.createElement('span');
         numSpan.className = 'score-num';
-        numSpan.textContent = s;
+        numSpan.textContent = score;
 
         btnTop.appendChild(numSpan);
 
         const labelSpan = document.createElement('span');
         labelSpan.className = 'score-label';
-        labelSpan.textContent = item.options[s] || '';
+        labelSpan.textContent = item.options[score] || '';
 
         btn.appendChild(btnTop);
         btn.appendChild(labelSpan);
 
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
-          if (scores[item.id] === s) {
+          if (scores[item.id] === score) {
             setScore(item.id, null);
           } else {
-            setScore(item.id, s);
+            setScore(item.id, score);
           }
         });
 
@@ -456,7 +456,7 @@
 
       const buttons = card.querySelectorAll('.score-btn');
       buttons.forEach(btn => {
-        const btnScore = parseInt(btn.getAttribute('data-score'), 10);
+        const btnScore = Number(btn.getAttribute('data-score'));
         if (btnScore === score) {
           btn.classList.add('selected');
         } else {

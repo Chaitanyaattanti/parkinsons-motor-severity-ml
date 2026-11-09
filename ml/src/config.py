@@ -22,6 +22,7 @@ class PipelineConfig:
     
     # Clinical documents
     clinical_updrs_sheet: str = "UPDRS Assessment Sheet.xlsx"
+    clinical_score_workbook: str = "Clinical Score.xlsx"
     clinical_protocol_sheet: str = "Patient Tests and Parameters for Data Collection.xlsx"
 
     # Data output directories
@@ -75,4 +76,3 @@ class PipelineConfig:
 
 
 DEFAULT_CONFIG = PipelineConfig()
-

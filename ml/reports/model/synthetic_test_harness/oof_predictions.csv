@@ -1,0 +1,25 @@
+participant_id,task,actual,predicted_score
+MOCK_P01,Hand Resting,0.0,0
+MOCK_P01,Finger Tapping,0.0,0
+MOCK_P01,Finger to Nose,0.0,0
+MOCK_P01,Arm Extended Forward,0.0,0
+MOCK_P02,Hand Resting,0.0,0
+MOCK_P02,Finger Tapping,0.0,0
+MOCK_P02,Finger to Nose,0.0,0
+MOCK_P02,Arm Extended Forward,0.0,0
+MOCK_P03,Hand Resting,0.0,0
+MOCK_P03,Finger Tapping,0.0,0
+MOCK_P03,Finger to Nose,0.0,0
+MOCK_P03,Arm Extended Forward,0.0,0
+MOCK_P04,Hand Resting,1.0,0
+MOCK_P04,Finger Tapping,1.0,0
+MOCK_P04,Finger to Nose,1.0,0
+MOCK_P04,Arm Extended Forward,1.0,0
+MOCK_P05,Hand Resting,2.0,3
+MOCK_P05,Finger Tapping,2.0,3
+MOCK_P05,Finger to Nose,2.0,1
+MOCK_P05,Arm Extended Forward,2.0,1
+MOCK_P06,Hand Resting,3.0,2
+MOCK_P06,Finger Tapping,3.0,2
+MOCK_P06,Finger to Nose,3.0,2
+MOCK_P06,Arm Extended Forward,3.0,2

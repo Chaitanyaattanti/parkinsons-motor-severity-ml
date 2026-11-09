@@ -79,10 +79,10 @@ def run_pipeline(config: PipelineConfig | None = None) -> int:
         f"- **Labeled Participants Found**: {readiness['n_labeled_participants']}",
         f"- **Labeled Recordings Found**: {readiness['n_labeled_rows']}",
         f"- **Detailed Reason**: {readiness['reason']}\n",
-        "## Required Actions to Unblock Supervised ML",
-        "1. Populate `reports/labels/label_mapping_template.csv` with real MDS-UPDRS Part III clinician scores (0-4).",
-        "2. Ensure assessment dates match recording dates.",
-        "3. Rerun pipeline with verified labels.\n",
+        "## Recommended Next Steps",
+        "1. Confirm the provisional task-to-score mapping with a clinician.",
+        "2. Ensure assessment dates and medication states match each recording session.",
+        "3. Add more participants and evaluate the model on an independent cohort.\n",
     ]
     audit_md_path.write_text("\n".join(audit_text), encoding="utf-8")
 
@@ -109,4 +109,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

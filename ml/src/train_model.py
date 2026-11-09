@@ -1,8 +1,7 @@
-"""Supervised model training and participant-grouped evaluation harness.
+"""Random Forest training and participant-grouped evaluation harness.
 
-Implements leakage-proof feature selection, median imputation, standardization,
-grouped cross-validation by participant_id, baseline comparison, and strict
-label-readiness auditing.
+Implements leakage-proof feature selection, median imputation, grouped
+cross-validation by participant_id, and strict label-readiness auditing.
 """
 
 from __future__ import annotations
@@ -15,14 +14,11 @@ from typing import Any
 import joblib
 import numpy as np
 import pandas as pd
-from sklearn.dummy import DummyRegressor
-from sklearn.ensemble import RandomForestRegressor
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.feature_selection import VarianceThreshold
 from sklearn.impute import SimpleImputer
-from sklearn.linear_model import Ridge
 from sklearn.model_selection import GroupKFold, LeaveOneGroupOut
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler
 
 from src.config import DEFAULT_CONFIG, PipelineConfig
 from src.evaluate_model import evaluate_ordinal_predictions, evaluate_regression_predictions, save_model_comparison_report
@@ -81,6 +77,16 @@ def check_model_readiness(
         }
 
     valid_df = df.loc[y_series.index]
+    invalid_scores = sorted(set(y_series[(y_series < 0) | (y_series > 4)].tolist()))
+    if invalid_scores:
+        return {
+            "ready": False,
+            "status": "BLOCKED_INVALID_SCORE_RANGE",
+            "n_labeled_participants": int(valid_df["participant_id"].nunique()),
+            "n_labeled_rows": n_labeled,
+            "unique_score_values": sorted(y_series.unique().tolist()),
+            "reason": f"Clinical scores must be integers in the 0-4 range; found {invalid_scores}.",
+        }
     n_participants = valid_df["participant_id"].nunique()
     unique_vals = sorted(y_series.unique().tolist())
 
@@ -105,31 +111,18 @@ def check_model_readiness(
 
 
 def build_models() -> dict[str, Pipeline]:
-    """Construct baseline and machine learning model pipelines."""
+    """Construct the Random Forest classifier for ordinal scores 0-4."""
     return {
-        "dummy_mean": Pipeline([
-            ("imputer", SimpleImputer(strategy="median")),
-            ("model", DummyRegressor(strategy="mean")),
-        ]),
-        "dummy_median": Pipeline([
-            ("imputer", SimpleImputer(strategy="median")),
-            ("model", DummyRegressor(strategy="median")),
-        ]),
-        "ridge_regression": Pipeline([
-            ("imputer", SimpleImputer(strategy="median")),
-            ("variance_filter", VarianceThreshold(threshold=1e-8)),
-            ("scaler", StandardScaler()),
-            ("model", Ridge(alpha=1.0, random_state=42)),
-        ]),
         "random_forest": Pipeline([
             ("imputer", SimpleImputer(strategy="median")),
             ("variance_filter", VarianceThreshold(threshold=1e-8)),
-            ("model", RandomForestRegressor(
-                n_estimators=100,
-                max_depth=3,
+            ("model", RandomForestClassifier(
+                n_estimators=300,
+                max_depth=None,
                 min_samples_leaf=2,
                 random_state=42,
                 n_jobs=-1,
+                class_weight="balanced",
             )),
         ]),
     }
@@ -174,7 +167,7 @@ def train_and_evaluate_grouped(
     oof_predictions: dict[str, np.ndarray] = {}
 
     for name, pipeline in models.items():
-        oof_preds = np.zeros(len(y), dtype=float)
+        oof_preds = np.zeros(len(y), dtype=int)
 
         for train_idx, val_idx in cv.split(x, y, groups=groups):
             # Assert no participant overlap between train and test
@@ -187,7 +180,7 @@ def train_and_evaluate_grouped(
 
             # Fit pipeline strictly on training fold
             pipeline.fit(x_train, y_train)
-            val_pred = pipeline.predict(x_val)
+            val_pred = pipeline.predict(x_val).astype(int)
             oof_preds[val_idx] = val_pred
 
         oof_predictions[name] = oof_preds
@@ -196,8 +189,8 @@ def train_and_evaluate_grouped(
         ord_metrics = evaluate_ordinal_predictions(y, oof_preds)
         scores[name] = {**reg_metrics, **ord_metrics}
 
-    # Best model selection by lowest MAE
-    best_name = min(scores, key=lambda m: scores[m]["mae"])
+    # Random Forest is the requested production model; baselines remain for comparison.
+    best_name = "random_forest"
 
     # Fit best model on entire labeled set for persistent artifact
     best_pipeline = build_models()[best_name]
@@ -215,6 +208,7 @@ def train_and_evaluate_grouped(
         "warnings": [
             f"Small sample size (N={n_groups} participants). Results have high uncertainty.",
             "Grouped cross-validation was strictly maintained by participant_id.",
+            "Random Forest predictions are evaluated as continuous estimates and rounded to ordinal scores 0-4.",
         ],
     }
 
@@ -336,4 +330,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

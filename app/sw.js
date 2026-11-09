@@ -1,5 +1,5 @@
 // Service Worker for MDS-UPDRS Part III App
-const CACHE_NAME = 'mds-updrs-v3';
+const CACHE_NAME = 'mds-updrs-v4';
 const ASSETS_TO_CACHE = [
   '/',
   '/styles.css',

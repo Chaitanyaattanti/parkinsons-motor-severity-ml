@@ -75,7 +75,7 @@ def extract_frequency_features(
     # 4. Low-Frequency Voluntary Movement Band (0.5 - 3.0 Hz)
     low_mask = (freqs >= 0.5) & (freqs < 3.0) & (freqs <= nyquist_hz)
     if low_mask.any():
-        p_low = float(np.trapezoid(psd[low_mask], freqs[low_mask])) if len(freqs[low_mask]) > 1 else float(psd[low_mask][0])
+        p_low = float(np.trapz(psd[low_mask], freqs[low_mask])) if len(freqs[low_mask]) > 1 else float(psd[low_mask][0])
         features["band_power_low_0_5_to_3_0_hz"] = p_low
         reasons["band_power_low_0_5_to_3_0_hz"] = "Trapezoidal power integration 0.5-3.0 Hz"
     else:
@@ -87,7 +87,7 @@ def extract_frequency_features(
     if nyquist_hz >= 4.5:
         pd_mask = (freqs >= 3.0) & (freqs <= min(5.0, nyquist_hz))
         if pd_mask.any() and len(freqs[pd_mask]) > 1:
-            p_pd = float(np.trapezoid(psd[pd_mask], freqs[pd_mask]))
+            p_pd = float(np.trapz(psd[pd_mask], freqs[pd_mask]))
             features["band_power_parkinsonian_3_0_to_5_0_hz"] = p_pd
             reasons["band_power_parkinsonian_3_0_to_5_0_hz"] = f"Observable Parkinsonian band 3.0-{min(5.0, nyquist_hz):.1f} Hz"
         else:
@@ -102,7 +102,7 @@ def extract_frequency_features(
     if nyquist_hz >= 10.0:
         high_mask = (freqs >= 5.0) & (freqs <= 10.0)
         if high_mask.any() and len(freqs[high_mask]) > 1:
-            features["band_power_high_5_0_to_10_0_hz"] = float(np.trapezoid(psd[high_mask], freqs[high_mask]))
+            features["band_power_high_5_0_to_10_0_hz"] = float(np.trapz(psd[high_mask], freqs[high_mask]))
             reasons["band_power_high_5_0_to_10_0_hz"] = "Full 5.0-10.0 Hz band supported by fs >= 20 Hz"
         else:
             features["band_power_high_5_0_to_10_0_hz"] = np.nan
